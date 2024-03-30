@@ -22,6 +22,7 @@ public class Simulation3D : MonoBehaviour
     public Spawner3D spawner;
     public ParticleDisplay3D display;
     public Transform floorDisplay;
+    
 
     // Buffers
     public ComputeBuffer positionBuffer { get; private set; }

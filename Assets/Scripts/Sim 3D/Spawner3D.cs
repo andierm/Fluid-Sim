@@ -10,6 +10,7 @@ public class Spawner3D : MonoBehaviour
     public float jitterStrength;
     public bool showSpawnBounds;
 
+    
     [Header("Info")]
     public int debug_numParticles;
 

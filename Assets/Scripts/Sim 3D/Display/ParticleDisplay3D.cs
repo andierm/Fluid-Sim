@@ -27,10 +27,19 @@ public class ParticleDisplay3D : MonoBehaviour
         mat.SetBuffer("Positions", sim.positionBuffer);
         mat.SetBuffer("Velocities", sim.velocityBuffer);
 
-        mesh = SebStuff.SphereGenerator.GenerateSphereMesh(meshResolution);
+        mesh = SebStuff.SphereGenerator.GenerateSphereMesh(gradientResolution);
         debug_MeshTriCount = mesh.triangles.Length / 3;
         argsBuffer = ComputeHelper.CreateArgsBuffer(mesh, sim.positionBuffer.count);
         bounds = new Bounds(Vector3.zero, Vector3.one * 10000);
+
+        // Vector3[] positions = new Vector3[sim.positionBuffer.count];
+        // sim.positionBuffer.GetData(positions);
+
+        // Instantiate particle game objects at positions
+        // for (int i = 0; i < sim.positionBuffer.count; i++)
+        // {
+        //     Instantiate(particlePrefab, positions[i], Quaternion.identity, transform);
+        // }
     }
 
     void LateUpdate()
@@ -60,7 +69,7 @@ public class ParticleDisplay3D : MonoBehaviour
         mat.SetMatrix("localToWorld", localToWorld);
     }
 
-    private void OnValidate()
+    void OnValidate()
     {
         needsUpdate = true;
     }
@@ -70,3 +79,4 @@ public class ParticleDisplay3D : MonoBehaviour
         ComputeHelper.Release(argsBuffer);
     }
 }
+

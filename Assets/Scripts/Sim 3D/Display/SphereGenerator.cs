@@ -12,7 +12,7 @@ namespace SebStuff
         static readonly int[] edgeTriplets = { 0, 1, 4, 1, 2, 5, 2, 3, 6, 3, 0, 7, 8, 9, 4, 9, 10, 5, 10, 11, 6, 11, 8, 7 };
         // The six initial vertices
         static readonly Vector3[] baseVertices = { Vector3.up, Vector3.left, Vector3.back, Vector3.right, Vector3.forward, Vector3.down };
-
+        
 
         public static Mesh GenerateSphereMesh(int resolution)
         {
